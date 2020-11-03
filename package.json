@@ -21,6 +21,7 @@
     "typescript": "3.3.3333"
   },
   "scripts": {
-    "start": "ts-node src/database/index.ts"
+    "start": "ts-node src/database/index.ts",
+    "typeorm": "ts-node-dev ./node_modules/typeorm/cli.js"
   }
 }
