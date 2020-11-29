@@ -1,3 +1,4 @@
+import "dotenv/config";
 import express from "express";
 import multer from "multer";
 import { createConnection } from "typeorm";
@@ -44,6 +45,23 @@ app.get('/products/:id', async (request, response) => {
 })
 
 
-app.listen(3333, () => {
+function normalizePort(val) {
+  const port = parseInt(val, 10);
+
+  if (isNaN(port)) {
+    return val;
+  }
+
+  if (port >= 0) {
+    return port;
+  }
+
+  return false;
+}
+
+const port = normalizePort(process.env.PORT || 3333);
+app.set('port', port);
+
+app.listen(port, () => {
   console.log('Sever initialized');
 })
