@@ -4,6 +4,7 @@ export interface IProductDTO {
   name: string;
   description: string;
   quantity: number;
+  image_url: string;
 }
 
 export interface IProductRepository {

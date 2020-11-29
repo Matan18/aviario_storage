@@ -16,6 +16,9 @@ export class Product {
   @Column()
   quantity: number;
 
+  @Column()
+  image_url: string;
+
   @CreateDateColumn()
   created_at: Date;
 
