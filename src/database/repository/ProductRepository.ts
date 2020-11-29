@@ -2,7 +2,6 @@ import { getRepository, Repository } from "typeorm";
 import { Product } from "../entity/Product";
 import { IProductDTO, IProductRepository } from "./IProductRepository";
 
-
 export class ProductRepository implements IProductRepository {
   private repository: Repository<Product>;
   constructor() {
@@ -17,6 +16,9 @@ export class ProductRepository implements IProductRepository {
   }
   async findOne(id: string): Promise<Product> {
     return await this.repository.findOne(id);
+  }
+  async findByName(name: string): Promise<Product> {
+    return await this.repository.findOne({ where: { name } })
   }
   async listAll(): Promise<Product[]> {
     return await this.repository.find();
