@@ -13,4 +13,5 @@ export interface IProductRepository {
   listAll(): Promise<Product[]>;
   update(id: string, data: IProductDTO): Promise<Product>;
   findByName(name: string): Promise<Product>;
+  searchByName(name: string): Promise<Product[]>;
 }

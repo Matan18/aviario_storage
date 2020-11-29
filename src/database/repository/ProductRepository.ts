@@ -21,6 +21,11 @@ export class ProductRepository implements IProductRepository {
   async findByName(name: string): Promise<Product> {
     return await this.repository.findOne({ where: { name } })
   }
+  async searchByName(name: string): Promise<Product[]> {
+    return await this.repository
+      .createQueryBuilder('product')
+      .where('(product.name) ~* (:name)', { name }).getMany();
+  }
   async listAll(): Promise<Product[]> {
     return await this.repository.find();
   }
