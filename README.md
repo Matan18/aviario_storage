@@ -19,7 +19,7 @@ Product:
     name: 'string' (nome do produto);
     description: 'string' (descrição);
     quantity: 'integer' (quantos itens existem no estoque);
-    sell_price: 'integer' (preço, em centavos do produto,`NOT IMPLEMENTED`)
+    price: 'integer' (preço, em centavos do produto)
     created_at: 'date' (data da criação do produto);
     updated_at: 'date' (data da última atualização do produto);
 
@@ -76,3 +76,6 @@ Change:
 * Uma transação deve ser registrada através de uma mudança;
 * Um mudança por vez pode ser cadastrada previamente e confirmada mais tarde, é inicialmente registrada em MongoDB, é passada para o banco principal mais tarde;
 
+# Tratamento de erros genérico
+
+* Para evitar algum erro na applicação, foi incluído um tratamento de erro genérico, havendo algum problema que resulte em um erro não tratado, a resposta é com status 500, um título de erro inesperado, e mensagem de erro

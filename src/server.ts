@@ -1,5 +1,6 @@
 import "dotenv/config";
-import express from "express";
+import express, { NextFunction, Request, Response } from "express";
+import 'express-async-errors';
 import multer from "multer";
 import { createConnection } from "typeorm";
 import cors from 'cors';
@@ -15,10 +16,10 @@ app.use('/files', express.static(tmpFolder));
 createConnection()
 
 app.post('/products', uploadMiddleware.single('image_url'), async (request, response) => {
-  const { name, description, quantity } = request.body;
+  const { name, description, quantity, price } = request.body;
   const { filename } = request.file;
   const productRepository = new ProductRepository();
-  const product = await productRepository.create({ name, description, quantity, image_url: filename });
+  const product = await productRepository.create({ name, description, quantity, image_url: filename, price });
 
   return response.send({ product });
 })
@@ -44,6 +45,12 @@ app.get('/products/:id', async (request, response) => {
   return response.send({ product });
 })
 
+app.use((err: Error, request: Request, response: Response, _: NextFunction) => {
+  return response.status(500).json({
+    status: 'Ocorreu um erro inesperado',
+    message: err.message
+  })
+})
 
 function normalizePort(val) {
   const port = parseInt(val, 10);
