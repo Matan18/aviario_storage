@@ -21,14 +21,14 @@ app.post('/products', uploadMiddleware.single('image_url'), async (request, resp
   const productRepository = new ProductRepository();
   const product = await productRepository.create({ name, description, quantity, image_url: filename, price });
 
-  return response.send({ product });
+  return response.send(product);
 })
 
 app.get('/products', async (_, response) => {
   const productRepository = new ProductRepository();
   const products = await productRepository.listAll();
 
-  return response.send({ products });
+  return response.send(products);
 })
 
 app.get('/products/search', async (request, response) => {
@@ -42,7 +42,7 @@ app.get('/products/:id', async (request, response) => {
   const productRepository = new ProductRepository();
   const product = await productRepository.findOne(id);
 
-  return response.send({ product });
+  return response.send(product);
 })
 
 app.use((err: Error, request: Request, response: Response, _: NextFunction) => {
