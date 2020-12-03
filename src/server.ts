@@ -34,10 +34,10 @@ app.get('/products', async (_, response) => {
 
 app.put('/products/:id', async (request, response) => {
   const { id } = request.params;
-  const { name, description, quantity, price } = request.body;
+  const { name, description, price } = request.body;
 
   const productRepository = new ProductRepository();
-  const product = await productRepository.update(id, { name, description, quantity, price });
+  const product = await productRepository.update(id, { name, description, price });
 
   return response.send(product);
 })

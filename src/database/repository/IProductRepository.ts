@@ -3,7 +3,7 @@ import { Product } from "../entity/Product";
 export interface IProductDTO {
   name: string;
   description: string;
-  quantity: number;
+  quantity?: number;
   image_url?: string;
   price: number;
 }
