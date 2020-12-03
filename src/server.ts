@@ -13,6 +13,7 @@ app.use(express.json())
 
 const uploadMiddleware = multer(uploadConfig);
 app.use('/files', express.static(tmpFolder));
+
 createConnection()
 
 app.post('/products', uploadMiddleware.single('image_url'), async (request, response) => {
@@ -29,6 +30,25 @@ app.get('/products', async (_, response) => {
   const products = await productRepository.listAll();
 
   return response.send(products);
+})
+
+app.put('/products/:id', async (request, response) => {
+  const { id } = request.params;
+  const { name, description, quantity, price } = request.body;
+
+  const productRepository = new ProductRepository();
+  const product = await productRepository.update(id, { name, description, quantity, price });
+
+  return response.send(product);
+})
+
+app.put('/products/:id/image', uploadMiddleware.single('image_url'), async (request, response) => {
+  const { id } = request.params;
+  const { filename } = request.file;
+  const productRepository = new ProductRepository();
+  const product = await productRepository.updateImage(id, { image_url: filename });
+
+  return response.json(product);
 })
 
 app.get('/products/search', async (request, response) => {

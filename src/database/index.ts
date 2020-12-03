@@ -7,13 +7,13 @@ import { TransactionRepository } from "./repository/TransactionRepository";
 createConnection().then(async connection => {
 
   const prodList = [
-    { name: 'produtoUltimo1', description: 'dçlfaj', price: 0, image_url: 'no_image.png', quantity: 43 },
-    { name: 'produtoUltimo2', description: 'dçlfaj', price: 0, image_url: 'no_image.png', quantity: 10 },
-    { name: 'produtoUltimo3', description: 'dçlfaj', price: 0, image_url: 'no_image.png', quantity: 8 },
-    { name: 'produtoUltimo4', description: 'dçlfaj', price: 0, image_url: 'no_image.png', quantity: 45 },
-    { name: 'produtoUltimo5', description: 'dçlfaj', price: 0, image_url: 'no_image.png', quantity: 54 },
-    { name: 'produtoUltimo6', description: 'dçlfaj', price: 0, image_url: 'no_image.png', quantity: 97 },
-    { name: 'produtoUltimo7', description: 'dçlfaj', price: 0, image_url: 'no_image.png', quantity: 1007 },
+    { name: 'produtoUltimo1', description: 'dçlfaj', price: 0, image_url: 'no_image1.png', quantity: 43 },
+    { name: 'produtoUltimo2', description: 'dçlfaj', price: 0, image_url: 'no_image2.png', quantity: 10 },
+    { name: 'produtoUltimo3', description: 'dçlfaj', price: 0, image_url: 'no_image3.png', quantity: 8 },
+    { name: 'produtoUltimo4', description: 'dçlfaj', price: 0, image_url: 'no_image4.png', quantity: 45 },
+    { name: 'produtoUltimo5', description: 'dçlfaj', price: 0, image_url: 'no_image5.png', quantity: 54 },
+    { name: 'produtoUltimo6', description: 'dçlfaj', price: 0, image_url: 'no_image6.png', quantity: 97 },
+    { name: 'produtoUltimo7', description: 'dçlfaj', price: 0, image_url: 'no_image7.png', quantity: 1007 },
   ]
   console.log('Initiating Repositories')
   const changeRepository = new ChangeRepository();
