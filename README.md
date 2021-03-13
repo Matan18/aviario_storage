@@ -1,4 +1,9 @@
 # Backend para controle de estoque
+## Introdução
+
+O Projeto é uma API Json para controle de estoque, fiz o [Aviário Mobile](https://github.com/Matan18/aviario_mobile) que seria o frontend para essa API
+
+## Requisitos
 
 1. Após fazer o clone dessa aplicação, execute o comando `npm i` ou `yarn`;
 2. Crie um banco de dados em postgres como mostra no arquivo `ormconfig.example.json`, ou crie um novo banco de dados e atualize o arquivo `ormconfig.example.json`;
